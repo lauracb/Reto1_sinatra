@@ -4,7 +4,11 @@ get '/' do
     unless params[:nombre]
         @saludo = "Hola desconocido!"
     else
-        @saludo ="Hola #{params[:nombre]}!"
+        if params[:nombre] == ""
+            @saludo = "Hola desconocido!"
+        else
+            @saludo ="Hola #{params[:nombre]}!"
+        end
     end
     erb :nombre
 end
